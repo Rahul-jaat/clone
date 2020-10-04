@@ -12,7 +12,8 @@ class DocController < ApplicationController
     def create
         @doc = Doc.new(doc_params)
 
-        if @doc.save
+      
+        if @doc.save!
             redirect_to @doc
         else
             render 'new'
@@ -20,9 +21,11 @@ class DocController < ApplicationController
     end
 
     def edit
+
     end
 
     def update
+        
     end
 
     def distroyed
@@ -30,11 +33,11 @@ class DocController < ApplicationController
 
     private
        
-       def find_doc
-       end
+    def find_doc
+    end
 
-       def doc_params
-        params.require(:doc).permit(:title,:content)
-       end
+    def doc_params
+       params.require(:doc).permit(:title,:content)
+    end
     
 end
